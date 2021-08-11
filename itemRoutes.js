@@ -29,11 +29,10 @@ router.post('/', function (req, res) {
 router.patch('/:name', function (req, res) {
     const founditem = ITEMS.find(i => i.name === req.params.name)
     if (founditem === undefined) {
-        throw new ExpressError("Item Not FOund", 404);
+        throw new ExpressError("Item Not Found", 404);
     }
     founditem.name = req.body.name;
     founditem.price = req.body.price;
-    console.log(founditem)
     res.json({ item: founditem })
 })
 
